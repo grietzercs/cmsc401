@@ -21,7 +21,7 @@ public class cmsc401 {
         return array;
     }
 
-    private static void determineSecondLargest(Integer[] intArray) {
+    private static void findNumbers(Integer[] intArray) {
         int secondLarge = 0;
         int bigLarge = intArray[0];
         for (int i=1; i < intArray.length; i++) {
