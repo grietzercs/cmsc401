@@ -46,11 +46,13 @@ public class ass1 {
        //reading an Integer Array (you should provide the size)
         System.out.println("Enter a array of lengh " + arrayLen + ": ");
         Integer[] listOfIntegers = readIntegerArray(arrayLen);
-        findNumbers(listOfIntegers);
+        listOfIntegers = findNumbers(listOfIntegers);
+        printArray(listOfIntegers);
     }
 
-    private static void findNumbers(Integer[] intArray) {
+    private static Integer[] findNumbers(Integer[] intArray) {
         int i = 0; int j = 0; int k = 0;
+        int minElement = 0; int maxElement = 0;
         Integer[] resultArray = intArray;
         for (i =0; i < intArray.length; i++) {
             int minIndex = i;
@@ -63,10 +65,24 @@ public class ass1 {
                     maxIndex = j;
                 }
             }
-            resultArray[k] = minIndex; resultArray[k+1] = maxIndex;
-            
-            System.out.println(intArray[maxIndex]);
-            return;
-        } 
+            if (intArray[i] < intArray[maxIndex] && ((i%2) <= 0)) {
+                int temp = intArray[maxIndex];
+                intArray[maxIndex] = intArray[i];
+                intArray[i] = temp;
+            }
+            if (intArray[i] > intArray[minIndex] && ((i%2) > 0)) {
+                int temp = intArray[minIndex];
+                intArray[minIndex] = intArray[i];
+                intArray[i] = temp;
+            }
+        }
+        return intArray;
+    }
+
+    private static void printArray(Integer[] intArray) {
+        int n = intArray.length;
+        for (int i=0; i<n; ++i)
+            System.out.print(intArray[i]+" ");
+        System.out.println();
     }
 }

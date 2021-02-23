@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09635df7-e332-49b3-b1de-414124e159d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ass1/assignment1/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ass1/assignment1/src/ass1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ass1/cmsc401.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +23,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../assignment1" />
   </component>
   <component name="RunManager">
     <configuration name="cmsc401" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
