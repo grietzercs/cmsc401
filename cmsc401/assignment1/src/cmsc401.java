@@ -1,7 +1,7 @@
 // Colden Grietzer
 import java.util.*;
 
-public class ass1 {
+public class cmsc401 {
     private static final Scanner scanner = new Scanner(System.in);
 
     // Please use these methods to take inputs and write outputs.
