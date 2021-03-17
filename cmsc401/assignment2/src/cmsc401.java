@@ -1,10 +1,8 @@
 // you name here
 import java.util.*;
 
-public class hw2 {
+public class cmsc401 {
     private static final Scanner scanner = new Scanner(System.in);
-
-    private static Node node = new Node();
 
     // Please use these methods to take inputs and write outputs.
     private static Integer readInt() {
