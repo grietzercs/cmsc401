@@ -4,8 +4,6 @@ import java.util.*;
 public class hw2 {
     private static final Scanner scanner = new Scanner(System.in);
 
-    private static Node node = new Node();
-
     // Please use these methods to take inputs and write outputs.
     private static Integer readInt() {
         return scanner.nextInt();
@@ -18,10 +16,10 @@ public class hw2 {
     private static Integer[] readIntegerArray(int size) {
         Integer[] array = new Integer[size];
         for (int i = 0; i < size; i++) {
-            array[i] = readInt();
-        }
-        return array;
+        array[i] = readInt();
     }
+        return array;
+}
 
     private static void printInt(int a) {
         System.out.println(a);
@@ -33,17 +31,57 @@ public class hw2 {
 
     public static void main(String[] args) {
 
-        Integer[] initialInput = readIntegerArray(2);
-        int numInputs = initialInput[0];
-        int numCitizens = initialInput[1];
+        Integer[] initialInput = {500, 1000};
+        int numInputs = 500;
+        int numCitizens = 1000;
 
         Integer[][] inputArrays = new Integer[numInputs][3];
-        inputArrays = readInput(inputArrays, numInputs);
+        //inputArrays = readInput(inputArrays, numInputs);
+        inputArrays = programmaticInput(inputArrays, numInputs, numCitizens);
+
+        //printArray(inputArrays, numInputs);
 
         Integer[] parents = new Integer[numCitizens];
         parents = setupParentArray(parents, numCitizens);
 
         interpretInput(inputArrays, parents, numInputs);
+    }
+
+    private static Integer[][] programmaticInput(Integer[][] inputArrays, int numInputs, int numCitizens) {
+        int leftCount = 0;
+        int rightCount = numCitizens-1;
+        for (int i = 0; i < (numInputs/2); i++) {
+            inputArrays[i][0] = 0;
+            inputArrays[i][1] = leftCount;
+            inputArrays[i][2] = rightCount;
+            //System.out.println(inputArrays[i][0] + " " + inputArrays[i][1] + " " + inputArrays[i][2]);
+            if ((leftCount < numCitizens) && (rightCount > 0)) {
+                leftCount++; rightCount--;
+            }
+        }
+        System.out.println("End first loop");
+        leftCount = 0;
+        rightCount = numCitizens-1;
+        for (int i=(numInputs/2); i < numInputs; i++) {
+            inputArrays[i][0] = 1;
+            inputArrays[i][1] = leftCount;
+            inputArrays[i][2] = rightCount;
+            //System.out.println(inputArrays[i][0] + " " + inputArrays[i][1] + " " + inputArrays[i][2]);
+            if ((leftCount < numCitizens) && (rightCount > 0)) {
+                leftCount++; rightCount--;
+            }
+        }
+        return inputArrays;
+    }
+
+    private static void printArray(Integer[][] inputArrays, int numInputs) {
+        System.out.println("Start printArray: ");
+        for (int i = 0; i < numInputs; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(inputArrays[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
     private static Integer[][] readInput(Integer[][] inputArrays, int numInputs) {
