@@ -1,6 +1,6 @@
-javac cmsc401.java
+javac hw2.java
 echo "case 1"
-java cmsc401  <<EOF
+java hw2  <<EOF
 701 385
 1 362 108
 1 368 283

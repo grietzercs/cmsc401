@@ -1,4 +1,4 @@
-// you name here
+// Colden Grietzer
 import java.util.*;
 
 import jdk.tools.jaotc.binformat.elf.AMD64JELFRelocObject;
@@ -36,6 +36,24 @@ public class cmsc401 {
         int numVertex = readInt();
         System.out.println("# of vertices: " + numVertex);
         int numEdges = readInt();
+        int inputArray[][] = new int[numVertex][numEdges];
+        int exampleArray[][] = new int[numVertex][numEdges];
+
+
+        for (int i = 0; i < numVertex; i++) {
+            for (int j = 0; j < numEdges; j++) {
+                inputArray[i][j] = scanner.nextInt();
+                exampleArray[i][j] = Integer.MAX_VALUE;
+            }
+        }
+
+        for (int i = 0; i < numVertex; i++) {
+            int u = inputArray[i][0];
+            int v = inputArray[i][1];
+            int value = inputArray[i][2];
+            exampleArray[u][v] = value;
+        }
+
         //remove this later and add vertices and edges directly
         int[][] vertices = new int[numVertex][2];
         for (int i = 0; i < numVertex; i++) {
@@ -98,14 +116,14 @@ public class cmsc401 {
         Graph(int vertices, int edges) {
             this.vertices = vertices;
             this.edges = edges;
-            edgeList = new LinkedList<Edge>[edges];
-            vertexList = new LinkedList<Vertex>[vertices];
+            edgeList = (LinkedList<Edge>[]) new LinkedList<?>[edges];
+            vertexList = (LinkedList<Vertex>[]) new LinkedList<?>[vertices];
             //initialize adjacency lists for all the vertices
             for (int i = 0; i < edges; i++) {
-                edgeList[i] = new LinkedList<Edge>();
+                edgeList[i] = (LinkedList<Edge>[]) new LinkedList<?>();
             }
             for (int i = 0; i < vertices; i++) {
-                vertexList[i] = new LinkedList<Vertex>();
+                vertexList[i] = (LinkedList<Vertex>[]) new LinkedList<?>();
             }
         }
 
@@ -119,14 +137,14 @@ public class cmsc401 {
             vertexList[numVertex].addFirst(vertex);
         }
 
-        public void printGraph(Graph graph){
-            for (int i = 0; i <vertices ; i++) {
-                LinkedList<Edge> list = edgeList[i];
-                for (int j = 0; j <list.size() ; j++) {
-                    System.out.println("vertex-" + i + " is connected to " +
-                            list.get(j).destination + " with weight " +  list.get(j).weight);
-                }
-            }
-        }
+        // public void printGraph(Graph graph){
+        //     for (int i = 0; i <vertices ; i++) {
+        //         LinkedList<Edge> list = edgeList[i];
+        //         for (int j = 0; j <list.size() ; j++) {
+        //             System.out.println("vertex-" + i + " is connected to " +
+        //                     list.get(j).destination + " with weight " +  list.get(j).weight);
+        //         }
+        //     }
+        // }
     }
 }

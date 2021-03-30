@@ -1,6 +1,5 @@
-javac cmsc401.java
-echo "case 1"
-java cmsc401  <<EOF
+javac ShortestPath.java
+java ShortestPath << EOF
 5
 7
 1 0
