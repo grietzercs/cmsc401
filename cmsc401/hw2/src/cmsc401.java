@@ -1,7 +1,7 @@
 // you name here
 import java.util.*;
 
-public class hw2 {
+public class cmsc401 {
     private static final Scanner scanner = new Scanner(System.in);
 
     // Please use these methods to take inputs and write outputs.
@@ -31,13 +31,13 @@ public class hw2 {
 
     public static void main(String[] args) {
 
-        Integer[] initialInput = readIntegerArray(2);
-        int numInputs = initialInput[0];
-        int numCitizens = initialInput[1];
+        Integer[] initialInput = {500, 1000};
+        int numInputs = 500;
+        int numCitizens = 1000;
 
         Integer[][] inputArrays = new Integer[numInputs][3];
-        inputArrays = readInput(inputArrays, numInputs);
-        //inputArrays = programmaticInput(inputArrays, numInputs, numCitizens);
+        //inputArrays = readInput(inputArrays, numInputs);
+        inputArrays = programmaticInput(inputArrays, numInputs, numCitizens);
 
         //printArray(inputArrays, numInputs);
 

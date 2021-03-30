@@ -2,7 +2,8 @@
 import java.util.*;
 
 public class cmsc401 {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final 
+    Scanner scanner = new Scanner(System.in);
 
     // Please use these methods to take inputs and write outputs.
     private static Integer readInt() {
@@ -17,6 +18,7 @@ public class cmsc401 {
         Integer[] array = new Integer[size];
         for (int i = 0; i < size; i++) {
             array[i] = readInt();
+            print 
         }
         return array;
     }
