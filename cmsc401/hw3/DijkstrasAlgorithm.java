@@ -3,7 +3,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class cmsc401 {
+class DijkstrasAlgorithm {
   
     private static final int NO_PARENT = -1;
 
@@ -73,19 +73,42 @@ class cmsc401 {
                                       int[] distances,
                                       int[] parents)
     {
+        int nVertices = distances.length;
+        System.out.print("Vertex\t Distance\tPath");
           
-        int vertexIndex = 1;
-        if (vertexIndex != startVertex) {
-            System.out.print(distances[vertexIndex]);
-            System.out.println();
+        for (int vertexIndex = 0; 
+                 vertexIndex < nVertices; 
+                 vertexIndex++) 
+        {
+            if (vertexIndex != startVertex) 
+            {
+                System.out.print("\n" + startVertex + " -> ");
+                System.out.print(vertexIndex + " \t\t ");
+                System.out.print(distances[vertexIndex] + "\t\t");
+                printPath(vertexIndex, parents);
+            }
         }
+    }
+
+    private static void printPath(int currentVertex,
+                                  int[] parents)
+    {
+          
+        if (currentVertex == NO_PARENT)
+        {
+            return;
+        }
+        printPath(parents[currentVertex], parents);
+        System.out.print(currentVertex + " ");
     }
   
     public static void main(String[] args)
     {
         Scanner scanner = new Scanner(System.in);
         int numVertex = scanner.nextInt();
+        System.out.println("# of vertices: " + numVertex);
         int numEdges = scanner.nextInt();
+        System.out.println("# of edges: " + numEdges);
         int inputArray[][] = new int[numEdges][3];
         int graph[][] = new int[numVertex][numVertex];
         int vertices[][] = new int[numVertex][2];
@@ -98,6 +121,7 @@ class cmsc401 {
 
         vertices[0][0] = 0; vertices[0][1] = 0; 
         vertices[1][0] = 1; vertices[1][1] = 0; 
+        System.out.println("Start input for vertices");
         for (int i = 2; i < numVertex; i++) {
             for (int j = 0; j < 2; j++) {
                 vertices[i][j] = scanner.nextInt();
@@ -105,6 +129,14 @@ class cmsc401 {
             vertices[i][0] -= 1;
         }
 
+        for (int i = 0; i < numVertex; i++) {
+            for (int j = 0; j < 2; j++) {
+                System.out.print(vertices[i][j]+" ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Start input for edges");
         for (int i = 0; i < numEdges; i++) {
             for (int j = 0; j < 3; j++) {
                 inputArray[i][j] = scanner.nextInt();
@@ -112,6 +144,14 @@ class cmsc401 {
             inputArray[i][0] -= 1;
             inputArray[i][1] -= 1;
         }
+
+        for (int i = 0; i < numEdges; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(inputArray[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
 
         for (int i = 0; i < numVertex; i++) {
             for (int j = 0; j < numVertex; j++) {
@@ -129,15 +169,31 @@ class cmsc401 {
         }
 
         for (int i = 0; i < numEdges; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(inputArray[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+        for (int i = 0; i < numEdges; i++) {
             int u = inputArray[i][0];
             int v = inputArray[i][1];
             int value = inputArray[i][2];
             try {
                 graph[u][v] = value;
+                //System.out.print(value + " ");
             } catch (ArrayIndexOutOfBoundsException e) {
+                //System.out.println("Value of " + i + ": " + i);
             }
         }
 
+        for (int i = 0; i < numVertex; i++) {
+            for (int j = 0; j < numVertex; j++) {
+                System.out.print(graph[i][j]+" ");
+            }
+            System.out.println();
+        }
         dijkstra(graph, 0);
         scanner.close();
     }
