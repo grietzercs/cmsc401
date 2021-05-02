@@ -78,6 +78,10 @@ public class hw4 {
             }
         }
         else {
+            if (ht.get(key) != null) {
+                System.out.println("ERROR");
+                System.exit(0);
+            }
             ht.put(key, value);
             System.out.println(ht.get(key));
             afterSize++;
