@@ -1,7 +1,7 @@
 //Colden Grietzer
 import java.util.*;
 
-public class hw4 {
+public class cmsc401 {
 
     public static Hashtable<Integer, Integer> ht = new Hashtable<>();
     public static void main(String[] args) throws Exception {        
